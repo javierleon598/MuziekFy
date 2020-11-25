@@ -10,14 +10,14 @@ export class SearchComponent implements OnInit {
 
   artistas: any[] = [];
 
-  constructor( private _spotifyService: SpotifyService ) { }
+  constructor( private spotifyService: SpotifyService ) { }
 
   ngOnInit(): void {
   }
 
   search(keyword: string){
     console.log(keyword);
-    this._spotifyService.getArtist(keyword)
+    this.spotifyService.getArtist(keyword)
       .subscribe( (data: any) => { 
         this.artistas = data.artists.items;
         console.log(this.artistas) 
