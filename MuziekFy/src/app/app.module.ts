@@ -13,6 +13,9 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 //Importar Rutas
 import { APP_ROUTES } from './app.routes';
 
+//Pipes
+import { NoimagePipe } from './pipes/noimage.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,8 @@ import { APP_ROUTES } from './app.routes';
     HomeComponent,
     SearchComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    NoimagePipe
   ],
   imports: [
     BrowserModule,
