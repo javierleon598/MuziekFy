@@ -39,7 +39,8 @@
                     <td>{{ topTrack.album.name }}</td>
                     <td>{{ topTrack.name }}</td>
                     <td>
-                        <audio [src]="topTrack.preview_url" controls></audio>
+                        <!-- <audio [src]="topTrack.preview_url" controls></audio> -->
+                        <iframe [src]="topTrack.uri | domseguro" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                     </td>
                 </tr>
             </tbody>
