@@ -18,6 +18,7 @@ import { APP_ROUTES } from './app.routes';
 //Pipes
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { DomseguroPipe } from './pipes/domseguro.pipe';
+import { ErrorComponent } from './components/shared/error/error.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DomseguroPipe } from './pipes/domseguro.pipe';
     NoimagePipe,
     TarjetasComponent,
     LoadingComponent,
-    DomseguroPipe
+    DomseguroPipe,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

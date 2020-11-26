@@ -12,15 +12,18 @@ export class ArtistComponent implements OnInit {
   artista: any = {};
   topTracks: any = [];
   loading: boolean;
+  error: boolean;
+  mensajeError: string;
 
   constructor(private activatedRoute: ActivatedRoute,
               private spotifyService: SpotifyService
               ) { 
     this.loading = true;
+    this.error = false;
     this.activatedRoute.params.subscribe( (params) => { 
       this.getArtista(params['id']);
       this.getTopTracks(params['id']);
-    } );
+    });
   }
 
   ngOnInit(): void {
@@ -32,6 +35,11 @@ export class ArtistComponent implements OnInit {
         this.artista = artista;
         this.loading = false;
         console.log(artista); 
+      } , (errorServicio) => {
+        this.loading = false;
+        this.error = true;
+        this.mensajeError = errorServicio.error.error.message;
+        console.log(errorServicio);
       });
   }
 
@@ -41,6 +49,11 @@ export class ArtistComponent implements OnInit {
         this.topTracks = topTracks;
         this.loading = false;
         console.log(topTracks); 
+      } , (errorServicio) => {
+        this.loading = false;
+        this.error = true;
+        this.mensajeError = errorServicio.error.error.message;
+        console.log(errorServicio);
       });
   }
 
